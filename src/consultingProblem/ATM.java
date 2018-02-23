@@ -1,8 +1,8 @@
 package consultingProblem;
 
 public class ATM {
-	private int[] cash = new int[6];
-	private int[] bills = { 1, 5, 10, 20, 50, 100 };
+	private int[] cash = new int[7];
+	private int[] bills = { 1, 5, 10, 20, 50, 100, 1000 };
 
 	public ATM() {
 		for (int x = 0; x < cash.length; x++) {
@@ -19,9 +19,14 @@ public class ATM {
 	public String W(int x) {
 		int d = x;
 		boolean cashed=false;
-		int[] cashX = new int[6];
+		int[] cashX = new int[7];
 		outerLoop:
 		while (x >= 0) {
+			if ((x >= 1000) && (((cash[6] - cashX[6]) > 0)) && (!cashed)) {
+				x -= 1000;
+				cashX[6]++;
+				cashed=true;
+			}
 			if ((x >= 100) && (((cash[5] - cashX[5]) > 0)) && (!cashed)) {
 				x -= 100;
 				cashX[5]++;
@@ -60,12 +65,12 @@ public class ATM {
 		if(x>0) {
 			return ("Failure: insufficient funds");
 		}
-		for (int y = 0; y < 6; y++) {
+		for (int y = 0; y < cash.length; y++) {
 			if (!((cash[y] - cashX[y]) >= 0)) {
 				return ("Failure: insufficient funds");
 			}
 		}
-		for (int z = 0; z < 6; z++) {
+		for (int z = 0; z < cash.length; z++) {
 			cash[z] -= cashX[z];
 		}
 		return ("Success: Dispensed $" + d);
@@ -73,6 +78,16 @@ public class ATM {
 
 	public String I(int x) {
 		return ("$" + bills[x] + " - " + cash[x]);
+	}
+	public boolean isInteger(String s) {
+	    try { 
+	        Integer.parseInt(s); 
+	    } catch(NumberFormatException e) { 
+	        return false; 
+	    } catch(NullPointerException e) {
+	        return false;
+	    }
+	    return true;
 	}
 
 }
