@@ -8,6 +8,10 @@ public class testATM {
 		boolean tru = true;
 		ATM atm = new ATM();
 		while (tru) {
+			System.out.println("R - Restocks the cash machine");
+			System.out.println("W- Withdraws that amount from the cash machine (e.g. W $145");
+			System.out.println("O- Displays the number of bills in that denomination present in the cash machine (e.g. I $20 $10 $1)");
+			System.out.println("Q - Quits the application");
 			String in = input.nextLine();
 			String[] inx = in.split(" "+"\\$");
 			if (inx[0].equals("R")) {
@@ -39,6 +43,7 @@ public class testATM {
 					System.out.println(atm.I(y));
 				}
 			} else if (inx[0].equals("Q")) {
+				System.out.println("Quit the program");
 				tru = false;
 			}else {
 				System.out.println("Did not understand");
