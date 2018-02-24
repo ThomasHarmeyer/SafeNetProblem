@@ -1,0 +1,5 @@
+Success: Dispensed $100
+$100 - 9
+Reset
+Failure: insufficient funds
+Quit the program
