@@ -12,6 +12,7 @@ public class testATM {
 	public static void main(String[] args) throws IOException {
 		File inputFile = new File("inputFile.txt");
 		//PrintWriter output2 = new PrintWriter(new FileOutputStream(inputFile));
+		//output2.print("");
 		//output2.close();
 		File outputFile = new File("outputFile.txt");
 		Scanner input = new Scanner(new FileInputStream(inputFile));
